@@ -1,0 +1,24 @@
+// Debug.xcconfig — testnet/development defaults
+// Override locally in Local.xcconfig (gitignored)
+
+// API
+NL_API_BASE_URL = https:/$()/nl-api.lmnorg.workers.dev
+NL_INVITE_API_BASE_URL = https:/$()/nl-waitlist.lmnorg.workers.dev
+NL_CHAT_BASE_URL = https:/$()/nl-chat.miranet.work
+NL_EXPORT_WALLET_URL = https:/$()/nl.miranet.work/export-wallet
+
+// Privy
+NL_PRIVY_APP_ID = cmmp3zil900rr0cjohnpcoabj
+NL_PRIVY_APP_CLIENT_ID = client-WY6WvJ9mHkS45YFpG51w6PP13UcrQzRxEPWByEhfLWK9V
+
+// Blockchain
+NL_CHAIN_ID = 84532
+NL_USDC_ADDRESS = 0xba50Cd2A20f6DA35D788639E581bca8d0B5d4D5f
+NL_BLOCK_EXPLORER_URL = https:/$()/sepolia.basescan.org
+
+// Sentry
+NL_SENTRY_DSN = https:/$()/4e32116bdfbc59340a58e3a4d4798c42@o4511057537007616.ingest.us.sentry.io/4511057542119424
+NL_SENTRY_TRACES_SAMPLE_RATE = 1.0
+
+// Local overrides (must be last — last definition wins in xcconfig)
+#include? "Local.xcconfig"

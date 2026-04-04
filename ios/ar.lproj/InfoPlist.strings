@@ -1,0 +1,4 @@
+"NSCameraUsageDescription" = "يستخدم Nola الكاميرا لمسح رموز QR لعناوين المحفظة.";
+"NSMicrophoneUsageDescription" = "يستخدم Nola الميكروفون للرسائل الصوتية في الدردشة.";
+"NSSpeechRecognitionUsageDescription" = "يستخدم Nola التعرف على الكلام لتحويل رسائلك الصوتية إلى نص.";
+"NSFaceIDUsageDescription" = "نستخدم Face ID للتحقق من هويتك بأمان عند الوصول إلى الميزات الحساسة في حساب Nola الخاص بك.";
