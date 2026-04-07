@@ -16,6 +16,7 @@ struct FundUSDCSheet: View {
 
     var body: some View {
         fundingContent
+            .accessibilityIdentifier("wallet_screen")
     }
 
     private var fundingContent: some View {

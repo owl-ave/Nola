@@ -184,6 +184,7 @@ struct CardView: View {
         } message: {
             Text(issuedMessage ?? "")
         }
+        .accessibilityIdentifier("CardView")
     }
 
     // MARK: - Content Router

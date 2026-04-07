@@ -35,5 +35,6 @@ struct KYCPromptStepView: View {
                 .multilineTextAlignment(.center)
         }
         .padding(.vertical, 8)
+        .accessibilityIdentifier("KYCPromptStepView")
     }
 }

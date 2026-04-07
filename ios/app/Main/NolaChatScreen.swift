@@ -342,6 +342,7 @@ struct NolaChatScreen: View {
         } message: {
             Text(recorder.errorMessage ?? "")
         }
+        .accessibilityIdentifier("NolaChatScreen")
     }
 
     // MARK: - Chat Input Bar

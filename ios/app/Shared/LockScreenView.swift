@@ -56,6 +56,7 @@ struct LockScreenView: View {
                 if success { onSuccess() }
             }
         }
+        .accessibilityIdentifier("LockScreenView")
     }
 
     // MARK: - Main Content

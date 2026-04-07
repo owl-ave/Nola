@@ -42,6 +42,7 @@ struct QRCodeStepView: View {
             }
         }
         .padding(.vertical, 8)
+        .accessibilityIdentifier("QRCodeStepView")
     }
 
     private var truncatedAddress: String {

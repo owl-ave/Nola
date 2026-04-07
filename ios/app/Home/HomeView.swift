@@ -142,6 +142,7 @@ struct HomeView: View {
         } message: {
             Text("\(comingSoonFeature ?? "") is coming soon. Stay tuned!")
         }
+        .accessibilityIdentifier("home_screen")
     }
 
     // MARK: - Balance Hero

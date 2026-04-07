@@ -107,6 +107,7 @@ struct SplashView: View {
             }
             startDotAnimation()
         }
+        .accessibilityIdentifier("SplashView")
     }
 
     private func startDotAnimation() {

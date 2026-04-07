@@ -76,6 +76,7 @@ struct AutoTopUpSettingsView: View {
             .environmentObject(authManager)
             .interactiveDismissDisabled()
         }
+        .accessibilityIdentifier("AutoTopUpSettingsView")
     }
 
     // MARK: - Shimmer Loading
