@@ -1,0 +1,4 @@
+"NSCameraUsageDescription" = "Nolaはウォレットアドレスのスキャンにカメラを使用します。";
+"NSMicrophoneUsageDescription" = "Nolaはチャットの音声メッセージにマイクを使用します。";
+"NSSpeechRecognitionUsageDescription" = "Nolaは音声メッセージの文字起こしに音声認識を使用します。";
+"NSFaceIDUsageDescription" = "Nolaアカウントの機密機能にアクセスする際の本人確認にFace IDを使用します。";

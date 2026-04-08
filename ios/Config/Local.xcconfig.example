@@ -1,0 +1,11 @@
+// Local.xcconfig — local overrides (copy to Local.xcconfig)
+// This file is gitignored. Override any value from Debug.xcconfig here.
+//
+// Example: point to a local API server
+// NL_API_BASE_URL = https:/$()/localhost:8787
+// NL_CHAT_BASE_URL = https:/$()/localhost:8788
+//
+// Example: use Base mainnet
+// NL_CHAIN_ID = 8453
+// NL_USDC_ADDRESS = 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+// NL_BLOCK_EXPLORER_URL = https:/$()/basescan.org

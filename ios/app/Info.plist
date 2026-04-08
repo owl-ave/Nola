@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>ja</string>
+		<string>ar</string>
+		<string>de</string>
+	</array>
+	<key>NL_API_BASE_URL</key>
+	<string>$(NL_API_BASE_URL)</string>
+	<key>NL_INVITE_API_BASE_URL</key>
+	<string>$(NL_INVITE_API_BASE_URL)</string>
+	<key>NL_CHAT_BASE_URL</key>
+	<string>$(NL_CHAT_BASE_URL)</string>
+	<key>NL_EXPORT_WALLET_URL</key>
+	<string>$(NL_EXPORT_WALLET_URL)</string>
+	<key>NL_PRIVY_APP_ID</key>
+	<string>$(NL_PRIVY_APP_ID)</string>
+	<key>NL_PRIVY_APP_CLIENT_ID</key>
+	<string>$(NL_PRIVY_APP_CLIENT_ID)</string>
+	<key>NL_CHAIN_ID</key>
+	<string>$(NL_CHAIN_ID)</string>
+	<key>NL_USDC_ADDRESS</key>
+	<string>$(NL_USDC_ADDRESS)</string>
+	<key>NL_BLOCK_EXPLORER_URL</key>
+	<string>$(NL_BLOCK_EXPLORER_URL)</string>
+	<key>NL_SENTRY_DSN</key>
+	<string>$(NL_SENTRY_DSN)</string>
+	<key>NL_SENTRY_TRACES_SAMPLE_RATE</key>
+	<string>$(NL_SENTRY_TRACES_SAMPLE_RATE)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>privy.oauth</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>nola</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Nola uses the camera to scan QR codes for wallet addresses.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Nola uses the microphone for voice messages in chat.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Nola uses speech recognition to transcribe your voice messages.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We use Face ID to securely verify your identity when accessing sensitive features in your Nola account.</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+		<key>UIImageName</key>
+		<string>NolaMark</string>
+	</dict>
+</dict>
+</plist>

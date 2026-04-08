@@ -1,0 +1,4 @@
+"NSCameraUsageDescription" = "Nola verwendet die Kamera zum Scannen von QR-Codes für Wallet-Adressen.";
+"NSMicrophoneUsageDescription" = "Nola verwendet das Mikrofon für Sprachnachrichten im Chat.";
+"NSSpeechRecognitionUsageDescription" = "Nola verwendet Spracherkennung, um Ihre Sprachnachrichten zu transkribieren.";
+"NSFaceIDUsageDescription" = "Wir verwenden Face ID, um Ihre Identität beim Zugriff auf sensible Funktionen in Ihrem Nola-Konto sicher zu verifizieren.";
