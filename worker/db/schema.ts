@@ -122,3 +122,93 @@ export const auditLog = sqliteTable("audit_log", {
   ipAddress: text("ip_address"),
   createdAt: text("created_at").notNull(),
 });
+
+// ==================== FILES MANAGEMENT ====================
+
+export const files = sqliteTable("files", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  filename: text("filename").notNull(),
+  mimeType: text("mime_type").default("application/octet-stream"),
+  size: integer("size").default(0),
+  storagePath: text("storage_path").notNull(),
+  sourceUrl: text("source_url"),
+  deletedAt: text("deleted_at"),
+  createdAt: text("created_at").notNull(),
+});
+
+// ==================== PAYMENTS SYSTEM ====================
+
+export const payments = sqliteTable("payments", {
+  id: text("id").primaryKey(),
+  senderId: text("sender_id").notNull().references(() => users.id),
+  recipientId: text("recipient_id").notNull(),
+  amount: real("amount").notNull(),
+  currency: text("currency").default("USD"),
+  status: text("status").default("pending"), // pending, completed, failed, cancelled
+  adminOverride: integer("admin_override").default(0),
+  description: text("description"),
+  createdAt: text("created_at").notNull(),
+  updatedAt: text("updated_at"),
+});
+
+export const userBalances = sqliteTable("user_balances", {
+  userId: text("user_id").primaryKey().references(() => users.id),
+  balance: real("balance").default(0),
+  currency: text("currency").default("USD"),
+  updatedAt: text("updated_at"),
+});
+
+export const paymentTransfers = sqliteTable("payment_transfers", {
+  id: text("id").primaryKey(),
+  senderId: text("sender_id").notNull().references(() => users.id),
+  recipientId: text("recipient_id").notNull(),
+  amount: real("amount").notNull(),
+  currency: text("currency").default("USD"),
+  note: text("note"),
+  createdAt: text("created_at").notNull(),
+});
+
+// ==================== INTEGRATIONS ====================
+
+export const integrations = sqliteTable("integrations", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  provider: text("provider").notNull(),
+  accessToken: text("access_token"),
+  refreshToken: text("refresh_token"),
+  status: text("status").default("active"), // active, disconnected, expired
+  connectedAt: text("connected_at").notNull(),
+});
+
+export const exportJobs = sqliteTable("export_jobs", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  format: text("format").notNull(),
+  filename: text("filename"),
+  command: text("command"),
+  status: text("status").default("pending"),
+  createdAt: text("created_at").notNull(),
+});
+
+export const importJobs = sqliteTable("import_jobs", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  config: text("config"), // JSON
+  status: text("status").default("pending"),
+  createdAt: text("created_at").notNull(),
+});
+
+// ==================== NOTIFICATIONS V2 ====================
+
+export const notificationsV2 = sqliteTable("notifications_v2", {
+  id: text("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  title: text("title").notNull(),
+  body: text("body").notNull(),
+  category: text("category").default("general"),
+  data: text("data"), // JSON
+  priority: text("priority").default("normal"),
+  readAt: text("read_at"),
+  createdAt: text("created_at").notNull(),
+});
