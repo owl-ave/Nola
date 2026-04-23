@@ -20,7 +20,11 @@ wallet.post("/create", privyAuth(), strictRateLimit, idempotent, async (c) => {
   const userId = c.get("userId");
   const body = await c.req.json<CreateWalletRequest>();
 
-  if (!body.chain || !["ethereum", "solana", "polygon"].includes(body.chain)) {
+  // Only use explicitly expected fields — prevent mass assignment of status/admin fields
+  const chain = body.chain;
+  const label = body.label;
+
+  if (!chain || !["ethereum", "solana", "polygon"].includes(chain)) {
     return c.json({ error: "Invalid chain. Must be ethereum, solana, or polygon" }, 400);
   }
 
@@ -30,12 +34,12 @@ wallet.post("/create", privyAuth(), strictRateLimit, idempotent, async (c) => {
 
   await c.env.DB.prepare(
     "INSERT INTO wallets (id, user_id, address, chain, label, created_at) VALUES (?, ?, ?, ?, ?, datetime('now'))"
-  ).bind(walletId, userId, address, body.chain, body.label || null).run();
+  ).bind(walletId, userId, address, chain, label || null).run();
 
   const response: CreateWalletResponse = {
     walletId,
     address,
-    chain: body.chain,
+    chain,
     createdAt: new Date().toISOString(),
   };
   return c.json(response, 201);
@@ -85,8 +89,13 @@ wallet.post("/:walletId/transfer", privyAuth(), transferRateLimit, idempotent, a
     return c.json({ error: "Missing required fields: toAddress, amount, token" }, 400);
   }
 
-  if (parseFloat(body.amount) <= 0) {
-    return c.json({ error: "Amount must be positive" }, 400);
+  const transferAmount = parseFloat(body.amount);
+  if (!Number.isFinite(transferAmount) || transferAmount <= 0) {
+    return c.json({ error: "Amount must be a positive number" }, 400);
+  }
+
+  if (transferAmount > 1000000) {
+    return c.json({ error: "Amount exceeds maximum transfer limit" }, 400);
   }
 
   const w = await c.env.DB.prepare(

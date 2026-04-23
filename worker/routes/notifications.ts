@@ -98,6 +98,12 @@ notifications.post("/send", apiKeyAuth, standardRateLimit, async (c) => {
     return c.json({ error: "Missing required fields" }, 400);
   }
 
+  // Validate category against allowed values to prevent injection in downstream queries
+  const allowedCategories = ["transactions", "security", "marketing", "rewards"];
+  if (!allowedCategories.includes(body.category)) {
+    return c.json({ error: "Invalid notification category" }, 400);
+  }
+
   const id = crypto.randomUUID();
   await c.env.DB.prepare(
     "INSERT INTO notifications (id, user_id, title, message, category, data, created_at) VALUES (?, ?, ?, ?, ?, ?, datetime('now'))"
